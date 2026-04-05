@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mezbaan — Sweets & Chaat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+  --cream:    #F7F0E6;
+  --cream2:   #EFE6D8;
+  --cream3:   #E8DDD0;
+  --ivory:    #FBF7F0;
+  --crimson:  #B01C2E;
+  --crimson2: #8C1524;
+  --crimson3: #D42A3F;
+  --ink:      #1C1209;
+  --ink2:     #3A2A1A;
+  --muted:    #7A6550;
+  --shadow:   rgba(28,18,9,0.06);
+  --shadow2:  rgba(28,18,9,0.12);
+}
+
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+/* ════ SCROLLBAR ════ */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream2)}
+::-webkit-scrollbar-thumb{background:var(--crimson);border-radius:3px}
+
+/* ════ NAV ════ */
+.navbar{
+  position:sticky;top:0;z-index:200;
+  background:var(--crimson);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 60px;height:64px;
+  box-shadow:0 4px 24px rgba(176,28,46,0.25);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.nav-logo-img{
+  width:38px;height:38px;border-radius:50%;
+  object-fit:cover;
+  border:2px solid rgba(255,255,255,0.5);
+}
+.nav-logo-text{
+  font-family:'DM Serif Display',serif;
+  font-size:1.25rem;color:#fff;letter-spacing:.3px;
+}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{
+  font-size:.8rem;font-weight:600;letter-spacing:1.2px;
+  text-transform:uppercase;color:rgba(255,255,255,0.82);
+  text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:rgba(255,255,255,0.15) !important;
+  border:1px solid rgba(255,255,255,0.4);
+  color:#fff !important;
+  padding:8px 18px;border-radius:3px;
+  transition:background .2s !important;
+}
+.nav-cta:hover{background:rgba(255,255,255,0.25) !important}
+
+/* ════ HERO ════ */
+.hero{
+  min-height:92vh;
+  background:var(--crimson);
+  display:flex;align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* big decorative shapes */
+.hero::before{
+  content:'';
+  position:absolute;top:-120px;right:-120px;
+  width:520px;height:520px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.hero::after{
+  content:'';
+  position:absolute;bottom:-80px;left:38%;
+  width:360px;height:360px;border-radius:50%;
+  background:rgba(255,255,255,0.03);
+}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:780px;
+  padding:80px 60px;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.7rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(255,255,255,0.55);
+  margin-bottom:24px;
+}
+.hero-kicker::before{content:'';width:28px;height:1px;background:rgba(255,255,255,0.35)}
+
+.hero-h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3.2rem,6vw,6rem);
+  line-height:1.0;
+  color:#fff;
+  margin-bottom:28px;
+  letter-spacing:-.5px;
+}
+.hero-h1 em{
+  font-style:italic;
+  color:rgba(255,255,255,0.6);
+}
+
+.hero-body{
+  font-size:1.05rem;font-weight:300;
+  color:rgba(255,255,255,0.7);
+  line-height:1.8;max-width:480px;
+  margin-bottom:44px;
+}
+
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-white{
+  background:#fff;color:var(--crimson);
+  font-size:.8rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;padding:14px 30px;
+  border-radius:3px;text-decoration:none;
+  transition:all .2s;
+}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-ghost-w{
+  border:1.5px solid rgba(255,255,255,.45);
+  color:#fff;font-size:.8rem;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:13px 28px;border-radius:3px;
+  text-decoration:none;transition:all .2s;
+}
+.btn-ghost-w:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+/* hero right stat strip */
+.hero-stats{
+  position:absolute;right:0;top:0;bottom:0;
+  width:260px;
+  background:rgba(0,0,0,.12);
+  display:flex;flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:0;
+  backdrop-filter:blur(4px);
+}
+.hero-stat{
+  width:100%;padding:36px 32px;
+  text-align:center;
+}
+.hero-stat + .hero-stat{border-top:1px solid rgba(255,255,255,0.1)}
+.hero-stat-num{
+  font-family:'DM Serif Display',serif;
+  font-size:2.8rem;color:#fff;line-height:1;
+  margin-bottom:6px;
+}
+.hero-stat-lbl{
+  font-size:.68rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.5);
+}
+
+/* ════ MARQUEE ════ */
+.marquee{
+  background:var(--ink);
+  padding:12px 0;overflow:hidden;
+}
+.marquee-inner{
+  display:flex;gap:0;width:max-content;
+  animation:ticker 26s linear infinite;
+}
+.marquee-item{
+  font-family:'Libre Baskerville',serif;
+  font-style:italic;font-size:.8rem;
+  color:rgba(255,255,255,.55);
+  padding:0 32px;white-space:nowrap;
+  display:flex;align-items:center;gap:14px;
+}
+.marquee-item::after{content:'·';color:var(--crimson3);font-style:normal;font-size:1.2rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ════ SHARED SECTION UTILS ════ */
+.section-kicker{
+  font-size:.68rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--crimson);
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:12px;
+}
+.section-kicker span{display:block;width:24px;height:1.5px;background:var(--crimson)}
+
+.section-h{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,3.5vw,3rem);
+  color:var(--ink);line-height:1.12;
+}
+.section-h em{font-style:italic;color:var(--crimson)}
+
+/* ════ ABOUT / INTRO ════ */
+.intro-section{
+  background:var(--ivory);
+  padding:100px 60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  box-shadow:inset 0 -40px 60px var(--shadow);
+}
+.intro-text{}
+.intro-text .section-h{margin-bottom:24px}
+.intro-text p{
+  font-size:.97rem;color:var(--ink2);
+  line-height:1.9;margin-bottom:14px;
+}
+.intro-pull{
+  margin-top:36px;
+  padding:24px 28px;
+  background:var(--cream);
+  border-left:3px solid var(--crimson);
+  border-radius:0 4px 4px 0;
+}
+.intro-pull p{
+  font-family:'Libre Baskerville',serif;
+  font-style:italic;font-size:1.05rem;
+  color:var(--ink2);line-height:1.75;margin:0;
+}
+
+.intro-right{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.intro-card{
+  background:var(--cream);
+  border-radius:8px;
+  padding:28px 22px;
+  box-shadow:0 2px 16px var(--shadow);
+  transition:transform .25s,box-shadow .25s;
+}
+.intro-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px var(--shadow2)}
+.intro-card-num{
+  font-family:'DM Serif Display',serif;
+  font-size:2.4rem;color:var(--crimson);
+  line-height:1;margin-bottom:6px;
+}
+.intro-card-lbl{
+  font-size:.72rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:10px;
+}
+.intro-card-desc{font-size:.82rem;color:var(--muted);line-height:1.55}
+.intro-card.span2{grid-column:span 2;display:flex;align-items:center;gap:20px}
+.intro-card.span2 .intro-card-num{font-size:1.8rem;flex-shrink:0}
+
+/* ════ MENU ════ */
+.menu-section{
+  background:var(--cream);
+  padding:96px 0;
+}
+.menu-head{
+  padding:0 60px;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:52px;flex-wrap:wrap;gap:20px;
+}
+.menu-link-out{
+  font-size:.78rem;font-weight:700;letter-spacing:.8px;
+  text-transform:uppercase;color:var(--crimson);
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+  transition:gap .2s;
+}
+.menu-link-out:hover{gap:10px}
+
+/* category tabs */
+.menu-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;
+  padding:0 60px;margin-bottom:44px;
+}
+.mtab{
+  background:transparent;
+  border:1.5px solid rgba(176,28,46,0.2);
+  color:var(--muted);
+  font-family:'Outfit',sans-serif;
+  font-size:.73rem;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:9px 18px;border-radius:999px;
+  cursor:pointer;transition:all .2s;
+}
+.mtab:hover{border-color:var(--crimson);color:var(--crimson)}
+.mtab.on{background:var(--crimson);border-color:var(--crimson);color:#fff}
+
+/* panels */
+.mpanel{display:none}.mpanel.on{display:block}
+
+/* each category layout: optional image + list */
+.cat-layout{
+  padding:0 60px;
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:60px;
+  align-items:start;
+}
+.cat-layout.no-img{grid-template-columns:1fr}
+
+/* list of items */
+.item-list{
+  display:flex;flex-direction:column;
+  gap:0;
+}
+.item-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(28,18,9,0.07);
+  transition:background .15s;
+}
+.item-row:first-child{border-top:1px solid rgba(28,18,9,0.07)}
+.item-row:hover .item-name{color:var(--crimson)}
+.item-left{flex:1}
+.item-name{
+  font-family:'Libre Baskerville',serif;
+  font-size:.95rem;font-weight:700;
+  color:var(--ink);margin-bottom:4px;
+  transition:color .2s;
+}
+.item-desc{
+  font-size:.8rem;color:var(--muted);line-height:1.5;
+}
+.item-badge{
+  display:inline-block;margin-top:5px;
+  font-size:.6rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--crimson);
+  background:rgba(176,28,46,0.07);
+  border:1px solid rgba(176,28,46,0.15);
+  padding:2px 7px;border-radius:2px;
+}
+.item-price{
+  font-family:'Libre Baskerville',serif;
+  font-size:.95rem;font-weight:700;
+  color:var(--crimson);white-space:nowrap;
+  flex-shrink:0;
+}
+
+/* category image */
+.cat-img-col{
+  position:sticky;top:84px;
+}
+.cat-img-wrap{
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 16px 48px var(--shadow2);
+}
+.cat-img-wrap img{
+  width:100%;display:block;
+  aspect-ratio:3/4;object-fit:cover;
+  transition:transform 5s ease;
+}
+.cat-img-wrap:hover img{transform:scale(1.04)}
+.cat-img-caption{
+  margin-top:14px;
+  font-family:'Libre Baskerville',serif;
+  font-style:italic;font-size:.8rem;
+  color:var(--muted);text-align:center;line-height:1.5;
+}
+
+/* ════ REVIEWS ════ */
+.reviews-section{
+  background:var(--ink);
+  padding:96px 0;
+  overflow:hidden;
+}
+.rev-head{
+  padding:0 60px;margin-bottom:52px;
+}
+.rev-head .section-kicker{color:rgba(255,255,255,.35)}
+.rev-head .section-kicker span{background:rgba(255,255,255,.2)}
+.rev-head .section-h{color:#fff}
+.rev-head .section-h em{color:var(--crimson3)}
+
+.rev-carousel{
+  overflow:hidden;position:relative;
+}
+.rev-carousel::before,.rev-carousel::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.rev-carousel::before{left:0;background:linear-gradient(to right,var(--ink),transparent)}
+.rev-carousel::after{right:0;background:linear-gradient(to left,var(--ink),transparent)}
+
+.rev-track{
+  display:flex;gap:18px;width:max-content;
+  padding:4px 60px;
+  animation:revScroll 36s linear infinite;
+  cursor:grab;
+}
+.rev-track:hover{animation-play-state:paused}
+.rev-track.dragging{animation-play-state:paused;cursor:grabbing}
+@keyframes revScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.rcard{
+  width:320px;flex-shrink:0;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;
+  padding:26px 28px;
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.rcard:hover{
+  background:rgba(255,255,255,.09);
+  border-color:rgba(176,28,46,.4);
+  transform:translateY(-4px);
+}
+.rcard-stars{color:#E8A020;letter-spacing:2px;font-size:.78rem;margin-bottom:14px}
+.rcard-quote{
+  font-family:'Libre Baskerville',serif;
+  font-style:italic;font-size:.9rem;
+  color:rgba(255,255,255,.75);
+  line-height:1.8;margin-bottom:20px;
+}
+.rcard-footer{display:flex;align-items:center;gap:12px}
+.rcard-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--crimson);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:1rem;
+  flex-shrink:0;
+}
+.rcard-name{font-weight:600;font-size:.83rem;color:#fff;margin-bottom:2px}
+.rcard-role{font-size:.7rem;color:rgba(255,255,255,.38)}
+
+/* ════ BRANCHES ════ */
+.branches-section{
+  background:var(--cream2);
+  padding:96px 60px;
+}
+.branches-head{margin-bottom:56px}
+.branches-head p{
+  font-size:.95rem;color:var(--muted);
+  max-width:500px;line-height:1.7;margin-top:14px;
+}
+.branches-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.bcard{
+  background:var(--ivory);
+  border-radius:10px;
+  padding:28px 26px;
+  box-shadow:0 2px 20px var(--shadow);
+  transition:all .25s;
+}
+.bcard:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px var(--shadow2);
+}
+.bcard-city{
+  font-family:'DM Serif Display',serif;
+  font-size:1.25rem;color:var(--ink);
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.bcard-city::after{
+  content:'';flex:1;height:1px;
+  background:rgba(28,18,9,.1);
+}
+.bcard-row{
+  display:flex;gap:9px;align-items:flex-start;
+  font-size:.8rem;color:var(--muted);
+  line-height:1.5;margin-bottom:7px;
+}
+.bcard-icon{color:var(--crimson);flex-shrink:0;margin-top:2px}
+.bcard-hours{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:14px;
+  font-size:.72rem;font-weight:700;letter-spacing:.6px;
+  text-transform:uppercase;
+  color:var(--crimson);
+  background:rgba(176,28,46,.07);
+  border:1px solid rgba(176,28,46,.15);
+  padding:5px 10px;border-radius:3px;
+}
+.bcard-link{
+  display:block;margin-top:14px;
+  font-size:.75rem;font-weight:700;
+  letter-spacing:.8px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  transition:color .2s;
+}
+.bcard-link:hover{color:var(--crimson)}
+
+/* ════ CTA ════ */
+.cta-section{
+  background:var(--crimson);
+  padding:88px 60px;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:40px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;right:-80px;top:-80px;
+  width:360px;height:360px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.cta-h{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.8rem,3.5vw,3rem);
+  color:#fff;line-height:1.15;position:relative;z-index:1;
+}
+.cta-h em{font-style:italic;color:rgba(255,255,255,.65)}
+
+/* ════ FOOTER ════ */
+footer{
+  background:var(--ink);
+  padding:64px 60px 36px;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.5fr;
+  gap:48px;
+  padding-bottom:48px;
+  margin-bottom:28px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.footer-brand{
+  font-family:'DM Serif Display',serif;
+  font-size:1.7rem;color:#fff;margin-bottom:4px;
+}
+.footer-tagline{
+  font-size:.68rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--crimson3);
+  margin-bottom:16px;
+}
+.footer-desc{font-size:.82rem;color:rgba(255,255,255,.32);line-height:1.75;max-width:250px}
+.footer-col h4{
+  font-size:.66rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.3);
+  margin-bottom:16px;
+}
+.footer-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-list a{font-size:.83rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s}
+.footer-list a:hover{color:#fff}
+.footer-ci{display:flex;gap:9px;align-items:flex-start;margin-bottom:9px}
+.footer-ci svg{color:var(--crimson3);flex-shrink:0;margin-top:2px}
+.footer-ci span{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.5}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.18)}
+.pay-row{display:flex;gap:6px}
+.pay-chip{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.35);
+  font-size:.67rem;font-weight:700;letter-spacing:.5px;
+  padding:4px 9px;border-radius:3px;
+}
+
+/* ════ SCROLL REVEAL ════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.up{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:1060px){
+  .hero-stats{display:none}
+  .intro-section{grid-template-columns:1fr;padding:72px 32px}
+  .cat-layout{grid-template-columns:1fr;padding:0 32px}
+  .cat-img-col{display:none}
+  .menu-head,.menu-tabs{padding-left:32px;padding-right:32px}
+  .branches-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .branches-section,.cta-section,footer{padding-left:32px;padding-right:32px}
+  .rev-head{padding:0 32px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .navbar{padding:0 24px}
+}
+@media(max-width:700px){
+  .hero-inner{padding:60px 24px}
+  .branches-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .nav-links a:not(.nav-cta){display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<header class="navbar">
+  <a class="nav-logo" href="#">
+    <img class="nav-logo-img"
+      src="https://mezbaan-lake.vercel.app/_next/image?url=%2Fmezbaan%2Flogo.jpg&w=256&q=75"
+      alt="Mezbaan"/>
+    <span class="nav-logo-text">Mezbaan</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#branches">Branches</a>
+    <a href="https://hungerstation.com/sa-en/restaurant/mezbaan/dammam/uhud/64146" target="_blank" class="nav-cta">Order Now</a>
+  </nav>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-kicker">Authentic Indian Street Food · Saudi Arabia</div>
+    <h1 class="hero-h1">
+      Where every<br/>bite tells <em>a story</em><br/>of tradition.
+    </h1>
+    <p class="hero-body">
+      Mezbaan brings the bold, unapologetic flavors of Indian street kitchens to the heart of Saudi Arabia. Sweets made the old way. Chaat that hits every note. No shortcuts.
+    </p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-white">Explore the Menu</a>
+      <a href="https://hungerstation.com/sa-en/restaurant/mezbaan/dammam/uhud/64146" target="_blank" class="btn-ghost-w">Order on Hungerstation</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">6+</div>
+      <div class="hero-stat-lbl">Locations</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">50+</div>
+      <div class="hero-stat-lbl">Menu Items</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-lbl">Authentic</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">★ 5</div>
+      <div class="hero-stat-lbl">Rated</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <div class="marquee-item">Mysore Pak</div><div class="marquee-item">Raj Kachori</div><div class="marquee-item">Pani Puri</div><div class="marquee-item">Gulab Jamun</div><div class="marquee-item">Faluda</div><div class="marquee-item">Pav Bhaji</div><div class="marquee-item">Chole Bhature</div><div class="marquee-item">Ras Malai</div><div class="marquee-item">Virgin Mojito</div><div class="marquee-item">Dahi Bhalla</div><div class="marquee-item">Bhel Puri</div><div class="marquee-item">Jalebi</div><div class="marquee-item">Vada Pav</div><div class="marquee-item">Rasgulla</div>
+    <div class="marquee-item">Mysore Pak</div><div class="marquee-item">Raj Kachori</div><div class="marquee-item">Pani Puri</div><div class="marquee-item">Gulab Jamun</div><div class="marquee-item">Faluda</div><div class="marquee-item">Pav Bhaji</div><div class="marquee-item">Chole Bhature</div><div class="marquee-item">Ras Malai</div><div class="marquee-item">Virgin Mojito</div><div class="marquee-item">Dahi Bhalla</div><div class="marquee-item">Bhel Puri</div><div class="marquee-item">Jalebi</div><div class="marquee-item">Vada Pav</div><div class="marquee-item">Rasgulla</div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="intro-section" id="about">
+  <div class="intro-text reveal">
+    <div class="section-kicker"><span></span>Our Story</div>
+    <h2 class="section-h">Generations of<br/>flavor, <em>one kitchen.</em></h2>
+    <p>We started Mezbaan with a single, stubborn belief: that Indian street food, done properly, is one of the greatest culinary traditions in the world. Not watered down. Not simplified. The real thing.</p>
+    <p>Every item on our menu is built from recipes that have been passed down, tested, and refined over generations. We source carefully, cook honestly, and serve with pride.</p>
+    <div class="intro-pull">
+      <p>"The same warmth, the same crunch, the same explosion of flavor — brought straight to Saudi Arabia without compromise."</p>
+    </div>
+  </div>
+  <div class="intro-right reveal d2">
+    <div class="intro-card">
+      <div class="intro-card-num">6+</div>
+      <div class="intro-card-lbl">Locations</div>
+      <div class="intro-card-desc">Riyadh, Dammam, Al Khobar, Jeddah, Al Jubail and growing.</div>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-num">50+</div>
+      <div class="intro-card-lbl">Menu Items</div>
+      <div class="intro-card-desc">Sweets, chaat, mocktails, desserts — something for everyone.</div>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-num">100%</div>
+      <div class="intro-card-lbl">Authentic</div>
+      <div class="intro-card-desc">No shortcuts. Traditional recipes, finest ingredients.</div>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-num">★ 5</div>
+      <div class="intro-card-lbl">Guest Rated</div>
+      <div class="intro-card-desc">Consistently loved by guests across the Kingdom.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MENU ═══ -->
+<section class="menu-section" id="menu">
+  <div class="menu-head reveal">
+    <div>
+      <div class="section-kicker"><span></span>What We Serve</div>
+      <h2 class="section-h">Our <em>Menu</em></h2>
+    </div>
+    <a href="https://hungerstation.com/sa-en/restaurant/mezbaan/dammam/uhud/64146" target="_blank" class="menu-link-out">Order Online ↗</a>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="mtab on" onclick="cat(this,'sweets')">🍬 Sweets</button>
+    <button class="mtab" onclick="cat(this,'mocktails')">🍹 Mocktails & Drinks</button>
+    <button class="mtab" onclick="cat(this,'cold')">🥗 Cold Chaat</button>
+    <button class="mtab" onclick="cat(this,'hot')">🔥 Hot Items</button>
+    <button class="mtab" onclick="cat(this,'beverages')">🧃 Beverages</button>
+    <button class="mtab" onclick="cat(this,'desserts')">🍮 Desserts</button>
+  </div>
+
+  <!-- ── SWEETS ── -->
+  <div class="mpanel on" id="sweets">
+    <div class="cat-layout">
+      <div class="item-list">
+        <div class="item-row"><div class="item-left"><div class="item-name">Mysore Pak</div><div class="item-desc">Rich traditional sweet made with ghee, sugar, and gram flour.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Jalebi (Zalabia)</div><div class="item-desc">Crispy deep-fried spirals soaked in sugar syrup.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 12</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Nimko Mix</div><div class="item-desc">A savory blend of crispy, spiced snacks.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 14</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Patisa (Soan Papdi Style)</div><div class="item-desc">Flaky, melt-in-mouth sweet with a delicate texture.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Malai Cham Cham</div><div class="item-desc">Soft milk-based sweets infused with cream and cardamom.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 24</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Dry Gulab Jamun (Mini)</div><div class="item-desc">Small fried milk balls with a light syrup glaze.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 24</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Ghee Mysore Pak (Premium)</div><div class="item-desc">Extra-rich version made with pure ghee for enhanced flavor.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 24</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Mini Gulab Jamun</div><div class="item-desc">Soft bite-sized syrup-soaked delights.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Rasgulla</div><div class="item-desc">Spongy cottage cheese balls soaked in light syrup.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 22</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Gulab Jamun (Classic)</div><div class="item-desc">Soft, rich milk dumplings soaked in warm sugar syrup.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Kaju Sweet (Cashew Delight)</div><div class="item-desc">Premium cashew-based sweet with a smooth texture.</div><span class="item-badge">250g</span></div><div class="item-price">SAR 32</div></div>
+      </div>
+      <div class="cat-img-col">
+        <div class="cat-img-wrap">
+          <img src="https://mezbaan-lake.vercel.app/_next/image?url=%2Fmezbaan%2Fgulab_jamun.png&w=828&q=75" alt="Sweets"/>
+        </div>
+        <div class="cat-img-caption">Handcrafted sweets made fresh daily using traditional recipes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MOCKTAILS ── -->
+  <div class="mpanel" id="mocktails">
+    <div class="cat-layout no-img">
+      <div class="item-list">
+        <div class="item-row"><div class="item-left"><div class="item-name">Strawberry Milk Juice</div><div class="item-desc">Fresh strawberries blended with chilled milk.</div></div><div class="item-price">SAR 16</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Virgin Mojito</div><div class="item-desc">Mint, lemon, and soda — crisp and refreshing.</div></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Bubble Ice Tea (Blueberry / Peach)</div><div class="item-desc">Flavored iced tea with chewy tapioca pearls.</div></div><div class="item-price">SAR 21</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Fresh Seasonal Juice</div><div class="item-desc">Made from freshly squeezed fruits of the season.</div></div><div class="item-price">SAR 12</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Blue Angel</div><div class="item-desc">A tropical blend of exotic fruit flavors.</div></div><div class="item-price">SAR 23</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Lemon Mint Juice</div><div class="item-desc">Zesty lemon with fresh mint and soda.</div></div><div class="item-price">SAR 17</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Faluda</div><div class="item-desc">Sweet chilled dessert drink with vermicelli and syrup.</div><span class="item-badge">House Special</span></div><div class="item-price">SAR 17</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Virgin Piña Colada</div><div class="item-desc">Pineapple and coconut tropical blend.</div></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Vanilla Milkshake</div><div class="item-desc">Rich, creamy vanilla shake.</div></div><div class="item-price">SAR 16</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Shirley Temple</div><div class="item-desc">Sweet cherry-based refreshing mocktail.</div></div><div class="item-price">SAR 23</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COLD CHAAT ── -->
+  <div class="mpanel" id="cold">
+    <div class="cat-layout">
+      <div class="item-list">
+        <div class="item-row"><div class="item-left"><div class="item-name">Bhel Puri</div><div class="item-desc">Crispy puffed rice mixed with chutneys and spices.</div></div><div class="item-price">SAR 14</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Bombay Sev Puri (6 pcs)</div><div class="item-desc">Crispy puris topped with potatoes, chutneys & sev.</div></div><div class="item-price">SAR 17</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Mezbaan Tokri</div><div class="item-desc">Special chaat basket filled with flavorful toppings.</div><span class="item-badge">★ Signature</span></div><div class="item-price">SAR 19</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Pani Puri (8 pcs)</div><div class="item-desc">Crispy puris filled with tangy flavored water.</div></div><div class="item-price">SAR 14</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Dahi Puri (6 pcs)</div><div class="item-desc">Puris topped with yogurt, chutneys, and spices.</div></div><div class="item-price">SAR 17</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Raj Kachori</div><div class="item-desc">Large crispy shell filled with chaat mix and chutneys.</div><span class="item-badge">★ Signature</span></div><div class="item-price">SAR 19</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Papri Chaat</div><div class="item-desc">Crunchy wafers with yogurt and tangy sauces.</div></div><div class="item-price">SAR 17</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Dahi Bhalla (2 pcs)</div><div class="item-desc">Soft lentil dumplings soaked in sweet yogurt.</div></div><div class="item-price">SAR 17</div></div>
+      </div>
+      <div class="cat-img-col">
+        <div class="cat-img-wrap">
+          <img src="https://mezbaan-lake.vercel.app/_next/image?url=%2Fmezbaan%2Fpanipuri.png&w=828&q=75" alt="Cold Chaat"/>
+        </div>
+        <div class="cat-img-caption">Cold chaat — tangy, crunchy, bursting with authentic flavor.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HOT ITEMS ── -->
+  <div class="mpanel" id="hot">
+    <div class="cat-layout no-img">
+      <div class="item-list">
+        <div class="item-row"><div class="item-left"><div class="item-name">Pasta</div><div class="item-desc">Classic pasta with a rich tomato-based sauce.</div></div><div class="item-price">SAR 19</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Pav Bhaji</div><div class="item-desc">Spiced mashed vegetables served with buttered buns.</div></div><div class="item-price">SAR 20</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Chow Mein</div><div class="item-desc">Stir-fried noodles with vegetables and sauces.</div></div><div class="item-price">SAR 16</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Mix Chaat</div><div class="item-desc">A combination of popular chaat flavors, hot and ready.</div></div><div class="item-price">SAR 17</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Daal Kachori (2 pcs)</div><div class="item-desc">Crispy dumplings filled with spiced lentils.</div></div><div class="item-price">SAR 6</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Chole Chaat</div><div class="item-desc">Spicy chickpeas with chutneys and toppings.</div></div><div class="item-price">SAR 12</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Aloo Vada (2 pcs)</div><div class="item-desc">Deep-fried potato dumplings — crispy outside, soft inside.</div></div><div class="item-price">SAR 6</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Vada Pav</div><div class="item-desc">Mumbai-style spicy potato burger.</div><span class="item-badge">Street Classic</span></div><div class="item-price">SAR 7</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Aloo Tikki Chaat</div><div class="item-desc">Crispy potato patties topped with chutneys.</div></div><div class="item-price">SAR 19</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Kachori Chaat</div><div class="item-desc">Crispy kachori topped with sauces and yogurt.</div></div><div class="item-price">SAR 13</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Samosa Chaat</div><div class="item-desc">Crushed samosa loaded with chutneys and toppings.</div></div><div class="item-price">SAR 14</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Samosa (2 pcs)</div><div class="item-desc">Crispy pastry filled with spiced potatoes.</div></div><div class="item-price">SAR 6</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Chole Bhature</div><div class="item-desc">Spicy chickpeas served with hot, puffy fried bread.</div><span class="item-badge">Most Loved</span></div><div class="item-price">SAR 20</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BEVERAGES ── -->
+  <div class="mpanel" id="beverages">
+    <div class="cat-layout no-img">
+      <div class="item-list">
+        <div class="item-row"><div class="item-left"><div class="item-name">Cold Drinks</div><div class="item-desc">Assorted soft drinks.</div></div><div class="item-price">SAR 5</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Mineral Water</div><div class="item-desc">Refreshing bottled water.</div></div><div class="item-price">SAR 2</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Khoya Lassi</div><div class="item-desc">Rich, thick yogurt-based traditional drink.</div><span class="item-badge">House Favourite</span></div><div class="item-price">SAR 10</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESSERTS ── -->
+  <div class="mpanel" id="desserts">
+    <div class="cat-layout">
+      <div class="item-list">
+        <div class="item-row"><div class="item-left"><div class="item-name">Rabri Malai</div><div class="item-desc">Condensed milk dessert topped with nuts.</div><span class="item-badge">Per Plate</span></div><div class="item-price">SAR 11</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Ras Malai (2 pcs)</div><div class="item-desc">Soft milk cakes soaked in rich creamy milk.</div><span class="item-badge">Per Plate</span></div><div class="item-price">SAR 11</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Rasgulla (2 pcs)</div><div class="item-desc">Spongy syrup-soaked cheese balls.</div><span class="item-badge">Per Plate</span></div><div class="item-price">SAR 11</div></div>
+        <div class="item-row"><div class="item-left"><div class="item-name">Gulab Jamun (2 pcs)</div><div class="item-desc">Warm, syrupy milk dumplings served fresh.</div><span class="item-badge">Per Plate</span></div><div class="item-price">SAR 10</div></div>
+      </div>
+      <div class="cat-img-col">
+        <div class="cat-img-wrap">
+          <img src="https://mezbaan-lake.vercel.app/_next/image?url=%2Fmezbaan%2Fjalebi.png&w=828&q=75" alt="Desserts"/>
+        </div>
+        <div class="cat-img-caption">Sweet endings — traditional desserts made fresh every day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="reviews-section" id="reviews">
+  <div class="rev-head reveal">
+    <div class="section-kicker"><span></span>Guest Reviews</div>
+    <h2 class="section-h">What people <em>say about us</em></h2>
+  </div>
+  <div class="rev-carousel">
+    <div class="rev-track" id="revTrack">
+      <!-- set 1 -->
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"THIS PLACE HAVE AMAZING VIBE NICE STAFF AND FOOD OUT CLASS EVERY DESERT HAVE UNIQUE TASTE AND UNDER 1 ROOF EVERYTHING AVAILABLE"</p><div class="rcard-footer"><div class="rcard-avatar">W</div><div><div class="rcard-name">Waqar Ahmed</div><div class="rcard-role">Local Guide</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"The Raj Kachori is absolutely divine. You can taste the authenticity in every bite. Best chaat in Dammam!"</p><div class="rcard-footer"><div class="rcard-avatar">S</div><div><div class="rcard-name">Sara Al-Harbi</div><div class="rcard-role">Verified Customer</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"Mezbaan brings that true desi flavor you've been craving. The sweets are fresh, the chaat is perfectly tangy — a gem."</p><div class="rcard-footer"><div class="rcard-avatar">A</div><div><div class="rcard-name">Ahmad Raza</div><div class="rcard-role">Food Blogger</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"The gulab jamun melts in your mouth. My whole family visits every weekend. Nothing like it anywhere in the Eastern Province."</p><div class="rcard-footer"><div class="rcard-avatar">F</div><div><div class="rcard-name">Fatima Malik</div><div class="rcard-role">Regular Customer</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"Authentic, high quality, beautifully presented. Mezbaan is setting the standard for Indian sweets in Saudi Arabia."</p><div class="rcard-footer"><div class="rcard-avatar">K</div><div><div class="rcard-name">Khalid Al-Rashid</div><div class="rcard-role">Food Critic</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"Finally found real pani puri in Dammam! The flavors are spot on — just like back home. Will absolutely keep coming back."</p><div class="rcard-footer"><div class="rcard-avatar">R</div><div><div class="rcard-name">Rana Siddiqui</div><div class="rcard-role">Verified Customer</div></div></div></div>
+      <!-- set 2 duplicate -->
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"THIS PLACE HAVE AMAZING VIBE NICE STAFF AND FOOD OUT CLASS EVERY DESERT HAVE UNIQUE TASTE AND UNDER 1 ROOF EVERYTHING AVAILABLE"</p><div class="rcard-footer"><div class="rcard-avatar">W</div><div><div class="rcard-name">Waqar Ahmed</div><div class="rcard-role">Local Guide</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"The Raj Kachori is absolutely divine. You can taste the authenticity in every bite. Best chaat in Dammam!"</p><div class="rcard-footer"><div class="rcard-avatar">S</div><div><div class="rcard-name">Sara Al-Harbi</div><div class="rcard-role">Verified Customer</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"Mezbaan brings that true desi flavor you've been craving. The sweets are fresh, the chaat is perfectly tangy — a gem."</p><div class="rcard-footer"><div class="rcard-avatar">A</div><div><div class="rcard-name">Ahmad Raza</div><div class="rcard-role">Food Blogger</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"The gulab jamun melts in your mouth. My whole family visits every weekend. Nothing like it anywhere in the Eastern Province."</p><div class="rcard-footer"><div class="rcard-avatar">F</div><div><div class="rcard-name">Fatima Malik</div><div class="rcard-role">Regular Customer</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"Authentic, high quality, beautifully presented. Mezbaan is setting the standard for Indian sweets in Saudi Arabia."</p><div class="rcard-footer"><div class="rcard-avatar">K</div><div><div class="rcard-name">Khalid Al-Rashid</div><div class="rcard-role">Food Critic</div></div></div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-quote">"Finally found real pani puri in Dammam! The flavors are spot on — just like back home. Will absolutely keep coming back."</p><div class="rcard-footer"><div class="rcard-avatar">R</div><div><div class="rcard-name">Rana Siddiqui</div><div class="rcard-role">Verified Customer</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-section">
+  <div class="cta-h">
+    Hungry? <em>Order now</em><br/>and taste the difference.
+  </div>
+  <a href="https://hungerstation.com/sa-en/restaurant/mezbaan/dammam/uhud/64146" target="_blank" class="btn-white">Order on Hungerstation ↗</a>
+</div>
+
+<!-- ═══ BRANCHES ═══ -->
+<section class="branches-section" id="branches">
+  <div class="branches-head reveal">
+    <div class="section-kicker"><span></span>Find Us</div>
+    <h2 class="section-h">We're across <em>the Kingdom</em></h2>
+    <p>Six locations and growing — visit us for dine-in at any of our branches.</p>
+  </div>
+  <div class="branches-grid">
+
+    <div class="bcard reveal">
+      <div class="bcard-city">Riyadh</div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>7875 Al Baraa Ibn Aazeb, Al-Wizarat, Riyadh 12624</span></div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 50 123 4561</span></div>
+      <span class="bcard-hours">🕙 10:00 AM – 11:30 PM</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Mezbaan+Sweets+Riyadh" target="_blank" class="bcard-link">View on map →</a>
+    </div>
+
+    <div class="bcard reveal d1">
+      <div class="bcard-city">Al Khobar</div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>17th Street, Al Khobar Al Shamalia, Al Khobar 34423</span></div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 50 987 6542</span></div>
+      <span class="bcard-hours">🕙 10:00 AM – 12:00 AM</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Mezbaan+Sweets+Al+Khobar" target="_blank" class="bcard-link">View on map →</a>
+    </div>
+
+    <div class="bcard reveal d2">
+      <div class="bcard-city">Dammam · Old Branch</div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Al Adamah, Dammam 32242</span></div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 50 456 7893</span></div>
+      <span class="bcard-hours">🕙 11:00 AM – 11:00 PM</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Mezbaan+Sweets+Dammam" target="_blank" class="bcard-link">View on map →</a>
+    </div>
+
+    <div class="bcard reveal">
+      <div class="bcard-city">Al Jubail</div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>King Abdullah Road, Jubail City Center, Al Jubail 35514</span></div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 13 361 7890</span></div>
+      <span class="bcard-hours">🕙 10:30 AM – 11:30 PM</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Mezbaan+Sweets+Al+Jubail" target="_blank" class="bcard-link">View on map →</a>
+    </div>
+
+    <div class="bcard reveal d1">
+      <div class="bcard-city">Jeddah</div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Ibn Manzour, Aziziyah, Jeddah 23342</span></div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 55 123 4567</span></div>
+      <span class="bcard-hours">🕙 1:00 PM – 12:00 AM</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Mezbaan+Sweets+Jeddah" target="_blank" class="bcard-link">View on map →</a>
+    </div>
+
+    <div class="bcard reveal d2">
+      <div class="bcard-city">Dammam · Rakah</div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Safa District, Rakah, Dammam 32242</span></div>
+      <div class="bcard-row"><svg class="bcard-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 13 859 1234</span></div>
+      <span class="bcard-hours">🕙 10:00 AM – 11:00 PM</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Mezbaan+Sweets+Dammam+Rakah" target="_blank" class="bcard-link">View on map →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Mezbaan</div>
+      <div class="footer-tagline">Sweets & Chaat · Saudi Arabia</div>
+      <p class="footer-desc">Bringing the bold, honest flavors of Indian street food to the heart of the Kingdom — with no shortcuts.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul class="footer-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#branches">Branches</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>On The Menu</h4>
+      <ul class="footer-list">
+        <li><a href="#menu">Sweets</a></li>
+        <li><a href="#menu">Cold Chaat</a></li>
+        <li><a href="#menu">Hot Items</a></li>
+        <li><a href="#menu">Desserts & Drinks</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <div class="footer-ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>123 Street Center, Riyadh, Saudi Arabia</span></div>
+      <div class="footer-ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 014.91 2h3.09a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+966 50 123 4567</span></div>
+      <div class="footer-ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>hello@mezbaansweets.com</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Mezbaan Sweets & Chaat. All Rights Reserved.</p>
+    <div class="pay-row">
+      <span class="pay-chip">VISA</span>
+      <span class="pay-chip">MC</span>
+      <span class="pay-chip">MADA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Menu tab switching
+function cat(btn, id) {
+  document.querySelectorAll('.mtab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.mpanel').forEach(p => p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('up'), i * 75);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Review carousel drag
+const track = document.getElementById('revTrack');
+let drag = false, startX = 0, offset = 0;
+track.addEventListener('mousedown', e => {
+  drag = true;
+  startX = e.pageX;
+  offset = new DOMMatrix(getComputedStyle(track).transform).m41;
+  track.classList.add('dragging');
+  track.style.animationPlayState = 'paused';
+});
+window.addEventListener('mouseup', () => {
+  drag = false;
+  track.classList.remove('dragging');
+  track.style.animationPlayState = '';
+});
+window.addEventListener('mousemove', e => {
+  if (!drag) return;
+  e.preventDefault();
+  track.style.transform = `translateX(${offset + e.pageX - startX}px)`;
+});
+</script>
+</body>
+</html>
